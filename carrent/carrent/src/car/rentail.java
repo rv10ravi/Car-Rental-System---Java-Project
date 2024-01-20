@@ -16,10 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author kobinath
- */
 public class rentail extends javax.swing.JFrame {
 
     public rentail() {
@@ -48,7 +44,7 @@ public class rentail extends javax.swing.JFrame {
             jComboBox1.removeAllItems();
 
             while (rs.next()) {
-                jComboBox1.addItem(rs.getString(2));
+                jComboBox1.addItem(rs.getString(1));
 
             }
         } catch (Exception e) {
@@ -252,10 +248,12 @@ public class rentail extends javax.swing.JFrame {
             String name = jComboBox1.getSelectedItem().toString();
             String custid = txt_custid.getText();
             String fee = txtfee.getText();
-            SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
-            String date = Date_Format.format(txtdate.getText());
-            SimpleDateFormat Date_Format1 = new SimpleDateFormat("yyyy-MM-dd");
-            String date2 = Date_Format1.format(txtdue.getText());
+            //SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
+            //String date = Date_Format.format(txtdate.getText());
+            String date=txtdate.getText();
+           // SimpleDateFormat Date_Format1 = new SimpleDateFormat("yyyy-MM-dd");
+            //String date2 = Date_Format1.format(txtdue.getText());\
+            String date2=txtdue.getText();
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/carrental", "root", "");
@@ -337,7 +335,7 @@ public class rentail extends javax.swing.JFrame {
 
             if (rs1.next() == false) 
             {
-                JOptionPane.showMessageDialog(null, "Car No not Found");
+                //JOptionPane.showMessageDialog(null, "Car No not Found");
             } 
             else {            
                 String available = rs1.getString("available");

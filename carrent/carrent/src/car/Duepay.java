@@ -242,40 +242,78 @@ public class Duepay extends javax.swing.JFrame {
     
     
     
-     private void table_update() {
-        int CC;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/carrental","root","");
-            pst = con.prepareStatement("SELECT * FROM returncar");
-             ResultSet Rs = pst.executeQuery();
-            
-   
-            ResultSetMetaData RSMD = Rs.getMetaData();
-            CC = RSMD.getColumnCount();
-            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
-            DFT.setRowCount(0);
+//     private void table_update() {
+//        int CC;
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            con = DriverManager.getConnection("jdbc:mysql://localhost/carrental","root","");
+//            pst = con.prepareStatement("SELECT * FROM returncar");
+//             ResultSet Rs = pst.executeQuery();
+//            
+//   
+//            ResultSetMetaData RSMD = Rs.getMetaData();
+//            CC = RSMD.getColumnCount();
+//            DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+//            DFT.setRowCount(0);
+//
+//            while (Rs.next()) {
+//                Vector v2 = new Vector();
+//           
+//                for (int ii = 1; ii <= CC; ii++) {
+//                    v2.add(Rs.getString("car_id"));
+//                    v2.add(Rs.getString("cust_id"));
+//                    v2.add(Rs.getString("return_date"));
+//                     v2.add(Rs.getString("elp"));
+//                     v2.add(Rs.getString("fine"));
+//                }
+//
+//                DFT.addRow(v2);
+//            }
+//        } catch (Exception e) {
+//        }
+//    }  
+//    
+//    
+    
+  private void table_update() {
+    int CC;
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/carrental", "root", "");
+        pst = con.prepareStatement("SELECT * FROM returncar");
+        ResultSet Rs = pst.executeQuery();
 
-            while (Rs.next()) {
-                Vector v2 = new Vector();
-           
-                for (int ii = 1; ii <= CC; ii++) {
-                    v2.add(Rs.getString("car_id"));
-                    v2.add(Rs.getString("cust_id"));
-                    v2.add(Rs.getString("return_date"));
-                     v2.add(Rs.getString("elp"));
-                     v2.add(Rs.getString("fine"));
-                }
+        ResultSetMetaData RSMD = Rs.getMetaData();
+        CC = RSMD.getColumnCount();
+        DefaultTableModel DFT = (DefaultTableModel) jTable1.getModel();
+        DFT.setRowCount(0);
 
-                DFT.addRow(v2);
+        while (Rs.next()) {
+            Vector<Object> v2 = new Vector<>();
+
+            for (int ii = 1; ii <= CC; ii++) {
+                v2.add(Rs.getString(ii));
             }
-        } catch (Exception e) {
+
+            DFT.addRow(v2);
         }
-    }  
-    
-    
-    
-    
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        // Close resources in the reverse order of their creation to avoid resource leaks
+        try {
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+
     
     
     
@@ -389,7 +427,7 @@ public class Duepay extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(this, "Updated Saved");
             
-            
+            table_update();
             
             
             
