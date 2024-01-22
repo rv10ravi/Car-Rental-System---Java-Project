@@ -51,7 +51,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="36" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Car Retail"/>
+        <Property name="text" type="java.lang.String" value="Car Rental"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">

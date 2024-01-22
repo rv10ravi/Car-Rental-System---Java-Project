@@ -83,7 +83,7 @@ public class rentail extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Cat ID");
+        jLabel1.setText("Car ID");
 
         jLabel2.setText("Customer ID");
 

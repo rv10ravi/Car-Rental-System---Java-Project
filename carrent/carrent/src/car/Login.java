@@ -27,7 +27,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel3.setText("Car Retail");
+        jLabel3.setText("Car Rental");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
