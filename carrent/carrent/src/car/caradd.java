@@ -347,7 +347,7 @@ public class caradd extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+      
         
            DefaultTableModel d1 = (DefaultTableModel)jTable1.getModel();
          int selectIndex = jTable1.getSelectedRow();
@@ -391,7 +391,7 @@ public void autoID()
         }   
     }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+       
         
         
                 DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -402,7 +402,7 @@ public void autoID()
       
       int dialogResult = JOptionPane.showConfirmDialog (null, "Do you want to Delete the record","Warning",JOptionPane.YES_NO_OPTION);
            if(dialogResult == JOptionPane.YES_OPTION){
-  // Saving code here
+
                       
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/carrental","root","");

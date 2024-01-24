@@ -273,9 +273,7 @@ public class customer extends javax.swing.JFrame {
                 
                 
             }     
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(caradd.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(caradd.class.getName()).log(Level.SEVERE, null, ex);
         }   
     
@@ -323,10 +321,8 @@ public class customer extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new customer().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new customer().setVisible(true);
         });
     }
 
